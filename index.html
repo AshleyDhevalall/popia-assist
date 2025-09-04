@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Form 5 — Complaint</title>
+
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="stylesheet" href="/styles.css" />
+
+  <!-- Minimal theme color for mobile -->
+  <meta name="theme-color" content="#0066cc" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>FORM 5 — Complaint</h1>
+    <button id="installBtn" class="install-btn" hidden>Install app</button>
+  </header>
+
+  <main class="container">
+    <p class="hint">Complete the form below. You can work offline — submissions will queue and send when online.</p>
+
+    <form id="complaintForm" autocomplete="off" novalidate>
+      <!-- Complaint Type -->
+      <fieldset>
+        <legend>Complaint Type</legend>
+        <label><input type="checkbox" name="type_interference" id="type_interference" /> Alleged interference with protection of personal information</label><br />
+        <label><input type="checkbox" name="type_adjudicator" id="type_adjudicator" /> Determination of an adjudicator</label>
+      </fieldset>
+
+      <hr />
+
+      <!-- Part I -->
+      <section>
+        <h2>Part I — Alleged interference</h2>
+
+        <fieldset>
+          <legend>A. Particulars of complainant</legend>
+          <label>Surname <input type="text" name="p1_complainant_surname" required /></label>
+          <label>Full names <input type="text" name="p1_complainant_fullnames" required /></label>
+          <label>Identity number <input type="text" name="p1_complainant_id" inputmode="numeric" pattern="\d{6,20}" /></label>
+          <label>Residential / Postal / Business address
+            <textarea name="p1_complainant_address" rows="3"></textarea>
+          </label>
+          <label>Postal code <input type="text" name="p1_complainant_code" inputmode="numeric" /></label>
+          <label>Contact number(s) <input type="tel" name="p1_complainant_contact" /></label>
+          <label>Fax number <input type="tel" name="p1_complainant_fax" /></label>
+          <label>Email address <input type="email" name="p1_complainant_email" /></label>
+        </fieldset>
+
+        <fieldset>
+          <legend>B. Particulars of body / responsible party</legend>
+          <label>Full name of person (natural person) <input type="text" name="p1_responsible_person" /></label>
+          <label>Name of public/private body <input type="text" name="p1_responsible_body" /></label>
+          <label>Residential / postal / business address
+            <textarea name="p1_responsible_address" rows="3"></textarea>
+          </label>
+          <label>Postal code <input type="text" name="p1_responsible_code" /></label>
+          <label>Contact number(s) <input type="tel" name="p1_responsible_contact" /></label>
+          <label>Fax number <input type="tel" name="p1_responsible_fax" /></label>
+          <label>Email address <input type="email" name="p1_responsible_email" /></label>
+        </fieldset>
+
+        <fieldset>
+          <legend>C. Reasons for complaint</legend>
+          <label>Details (attach affidavits/evidence below)
+            <textarea name="p1_reasons" rows="6" required></textarea>
+          </label>
+        </fieldset>
+      </section>
+
+      <hr />
+
+      <!-- Part II -->
+      <section>
+        <h2>Part II — Determination of adjudicator</h2>
+
+        <fieldset>
+          <legend>A. Particulars of complainant</legend>
+          <label>Surname <input type="text" name="p2_complainant_surname" /></label>
+          <label>Full names <input type="text" name="p2_complainant_fullnames" /></label>
+          <label>Identity number <input type="text" name="p2_complainant_id" /></label>
+          <label>Residential / postal / business address
+            <textarea name="p2_complainant_address" rows="3"></textarea>
+          </label>
+          <label>Postal code <input type="text" name="p2_complainant_code" /></label>
+          <label>Contact number(s) <input type="tel" name="p2_complainant_contact" /></label>
+          <label>Fax number <input type="tel" name="p2_complainant_fax" /></label>
+          <label>Email address <input type="email" name="p2_complainant_email" /></label>
+        </fieldset>
+
+        <fieldset>
+          <legend>B. Particulars of adjudicator</legend>
+          <label>Full name of adjudicator <input type="text" name="p2_adjudicator_name" /></label>
+          <label>Name/surname of responsible party <input type="text" name="p2_responsible_name" /></label>
+          <label>Responsible party (organisation) <input type="text" name="p2_responsible_org" /></label>
+          <label>Residential / postal / business address
+            <textarea name="p2_responsible_address" rows="3"></textarea>
+          </label>
+          <label>Postal code <input type="text" name="p2_responsible_code" /></label>
+          <label>Contact number(s) <input type="tel" name="p2_responsible_contact" /></label>
+          <label>Fax number <input type="tel" name="p2_responsible_fax" /></label>
+          <label>Email address <input type="email" name="p2_responsible_email" /></label>
+        </fieldset>
+
+        <fieldset>
+          <legend>C. Reasons for grievance</legend>
+          <label>Details
+            <textarea name="p2_reasons" rows="6"></textarea>
+          </label>
+        </fieldset>
+      </section>
+
+      <hr />
+
+      <!-- Attachments -->
+      <fieldset>
+        <legend>Supporting documents</legend>
+        <label>Attach affidavits/evidence (max 10MB each)
+          <input type="file" name="attachments" id="attachments" multiple accept=".pdf,.jpg,.jpeg,.png,.doc,.docx" />
+        </label>
+        <small class="muted">Affidavits or documentary evidence must be attached where available.</small>
+      </fieldset>
+
+      <!-- Declaration -->
+      <fieldset class="declaration">
+        <legend>Declaration</legend>
+        <label>Signed at <input type="text" name="signed_at" /></label>
+        <label>Day <input type="number" name="signed_day" min="1" max="31" /></label>
+        <label>Month
+          <select name="signed_month">
+            <option value="">--</option>
+            <option>January</option><option>February</option><option>March</option>
+            <option>April</option><option>May</option><option>June</option>
+            <option>July</option><option>August</option><option>September</option>
+            <option>October</option><option>November</option><option>December</option>
+          </select>
+        </label>
+        <label>Year <input type="number" name="signed_year" min="1900" max="2100" /></label>
+        <label><input type="checkbox" name="declaration_confirm" required /> I confirm that the information provided is true and correct</label>
+      </fieldset>
+
+      <div class="actions">
+        <button type="submit" id="submitBtn">Submit complaint</button>
+        <button type="button" id="saveDraftBtn">Save draft locally</button>
+      </div>
+
+      <div id="status" aria-live="polite"></div>
+    </form>
+
+    <section id="queueSection">
+      <h3>Queued submissions</h3>
+      <ul id="queueList"></ul>
+    </section>
+  </main>
+
+  <script src="/app.js" type="module"></script>
+</body>
+</html>
